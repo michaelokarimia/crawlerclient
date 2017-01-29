@@ -13,7 +13,7 @@ func TestCrawlerclient(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		got:= Crawlerclient(c.in)
+		got:= GetUrls(c.in)
 		if !strings.Contains(got,c.want) {
 			t.Errorf("Crawlerclient(%q) contains %q, wanted  %q inside it", c.in, got, c.want)
     }

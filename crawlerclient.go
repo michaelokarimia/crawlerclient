@@ -6,7 +6,7 @@ import ("io/ioutil"
 )
 
 
-func Crawlerclient(domain string) (responseText string){
+func GetUrls(domain string) (responseText string){
   resp, err := http.Get("http://" + domain)
   if err == nil{
 
