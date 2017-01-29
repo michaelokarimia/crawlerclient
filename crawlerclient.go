@@ -2,6 +2,7 @@ package crawlerclient
 
 import ("io/ioutil"
         "net/http"
+        "github.com/michaelokarimia/htmlparser"
 )
 
 
@@ -16,6 +17,15 @@ func Crawlerclient(domain string) (responseText string){
 
   }  else {
     responseText = "Failed to parse"
+    return
   }
-  return responseText
+
+  var urls= htmlparser.Htmlparser(responseText, domain)
+
+  var urllist = "urls found:"
+  for i:= range urls {
+    urllist += "\n" + urls[i]
+  }
+
+  return urllist
 }
